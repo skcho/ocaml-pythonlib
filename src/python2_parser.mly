@@ -334,7 +334,6 @@ import_from:
       { ImportFrom (fst $2, $4, snd $2, annot $1) }
 
 name_and_level:
-  | dotted_name { $1, Some 0 }
   | dot_level dotted_name { $2, Some $1 }
   | DOT dot_level { "", Some (1 + $2) }
 
