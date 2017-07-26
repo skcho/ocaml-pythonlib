@@ -9,6 +9,11 @@ done
 
 ocamlyacc "$@"
 
+case "$(uname -s)" in
+    Darwin*)    sed=gsed;;
+    *)          sed=sed;;
+esac
+
 # Cut out token definition
 sed -i -e '0,/^$/d' "$prefix.ml" "$prefix.mli"
 
