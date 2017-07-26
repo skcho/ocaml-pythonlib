@@ -15,10 +15,10 @@ case "$(uname -s)" in
 esac
 
 # Cut out token definition
-sed -i -e '0,/^$/d' "$prefix.ml" "$prefix.mli"
+${sed} -i -e '0,/^$/d' "$prefix.ml" "$prefix.mli"
 
 # Fix mli for parameterizing
-sed -i \
+${sed} -i \
     -e '1i open Token' \
     -e '1i module Make : functor (A : Ast.Annot) -> sig' \
     -e '$a end' \
