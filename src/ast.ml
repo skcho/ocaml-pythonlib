@@ -320,7 +320,7 @@ let string_of_number = function
   | Imag (n)     -> n
 
 module type Annot = sig
-  type t
+  type t = Lexing.position
   val of_pos : Lexing.position -> t
 end
 
